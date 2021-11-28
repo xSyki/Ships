@@ -312,58 +312,6 @@ td {
     text-align: center;
 }
 
-/* @media (max-width: 610px) {
-    .appShips {
-        grid-template-areas:
-            "gameTitle"
-            "myGameBoard"
-            "aiGameBoard"
-            "stats"
-            "instruction";
-    }
-
-    .myGameBoard {
-        grid-template-columns:
-            8vw 80vw;
-        grid-template-rows:
-            8vw 8vw 80vw;
-    }
-
-    .aiGameBoard {
-        grid-template-columns:
-            80vw 8vw;
-        grid-template-rows:
-            8vw 8vw 80vw;
-    }
-
-    .gameBoardCells {
-        grid-template-columns: repeat(10, 8vw);
-        grid-template-rows: repeat(10, 8vw);
-        grid-area: gameCells;
-    }
-
-    .cellInstruction {
-        width: 8vw;
-        height: 8vw;
-        min-width: 8vw;
-        min-height: 8vw;
-    }
-
-    .instructionX {
-        display: grid;
-        grid-template-columns: repeat(11, 8vw);
-        grid-template-rows: repeat(1, 8vw);
-        grid-area: instructionX;
-    }
-
-    .instructionY {
-        display: grid;
-        grid-template-columns: repeat(1, 8vw);
-        grid-template-rows: repeat(10, 8vw);
-        grid-area: instructionY;
-    }
-} */
-
 @media (max-width: 1370px) {
     .appShips {
         grid-template-areas:
