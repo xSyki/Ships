@@ -1,0 +1,564 @@
+/* DC3444
+BC1120 */
+
+/* 28A745
+1E8838 */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+    font-family: Roboto;
+    box-shadow: none;
+}
+
+input {
+    background-color: transparent;
+    width: 2rem;
+}
+
+body {
+    background-color: #424242;
+}
+
+.appShips {
+    display: grid;
+    grid-template-areas:
+        "gameTitle gameTitle gameTitle gameTitle"
+        "stats myGameBoard aiGameBoard instruction";
+    text-align: center;
+    justify-content: center;
+    column-gap: 2vw;
+    row-gap: 1vw;
+    margin: 0 auto;
+}
+
+.gameTitle {
+    grid-area: gameTitle;
+    font-size: 5rem;
+    font-family: 'Pirata One';
+}
+
+.header {
+    display: grid;
+    grid-area: header;
+    grid-template-areas:
+        "headerTitle headerTitle"
+        "score score";
+    justify-content: center;
+    /* background-color: #464646;
+    border-radius: 0% 0% 50% 50%; */
+    padding: 1rem;
+    width: 300px;
+}
+
+.headerTitle {
+    grid-area: headerTitle;
+    justify-self: center;
+}
+
+.score {
+    grid-area: score;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(2, 50%);
+    grid-gap: 2rem;
+}
+
+
+.stats {
+    grid-area: stats;
+    justify-self: center;
+    align-items: center;
+    width: 270px;
+    height: 440px;
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow:
+        inset 1px 1px 15px rgba(0, 0, 0, 0.7),
+        inset 5px 5px 10px rgba(0, 0, 0, .3);
+}
+
+.instruction {
+    grid-area: instruction;
+    justify-self: center;
+    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: center;
+    width: 270px;
+    height: 440px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow:
+        inset 1px 1px 15px rgba(0, 0, 0, 0.7),
+        inset 5px 5px 10px rgba(0, 0, 0, .3);
+}
+
+.instruction h2 {
+    margin-bottom: 10px;
+}
+
+.instructionDiv {
+    display: grid;
+    align-items: center;
+    padding-left: 10px;
+    padding-top: 10px;
+    grid-template-areas: "cellInstruction instructionText";
+    width: 100%;
+}
+
+.instructionText {
+    grid-area: instructionText;
+    justify-self: left;
+}
+
+.myGameBoard {
+    display: grid;
+    grid-template-columns:
+        2.5vw 25vw;
+    grid-template-rows:
+        2.5vw 2.5vw 25vw;
+    grid-template-areas:
+        "gameBoardInstructionTitle gameBoardInstructionTitle"
+        "none instructionX"
+        "instructionY gameCells";
+    grid-area: myGameBoard;
+}
+
+.aiGameBoard {
+    display: grid;
+    grid-template-columns:
+        25vw 2.5vw;
+    grid-template-rows:
+        2.5vw 2.5vw 25vw;
+    grid-template-areas:
+        "gameBoardInstructionTitle gameBoardInstructionTitle"
+        "instructionX none"
+        "gameCells instructionY";
+    grid-area: aiGameBoard;
+}
+
+.gameBoardCells {
+    display: grid;
+    grid-template-columns: repeat(10, 2.5vw);
+    grid-template-rows: repeat(10, 2.5vw);
+    grid-area: gameCells;
+}
+
+.cell {
+    border: 1px solid white;
+    background-color: transparent;
+}
+
+.cellCenter {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.cellInstruction {
+    width: 2.5vw;
+    height: 2.5vw;
+    min-width: 2.5vw;
+    min-height: 2.5vw;
+    margin-right: 5px;
+    grid-area: cellInstruction;
+}
+
+.gameBoardInstructionTitle {
+    grid-area: gameBoardInstructionTitle;
+    justify-self: center;
+}
+
+.instructionX {
+    display: grid;
+    grid-template-columns: repeat(11, 2.5vw);
+    grid-template-rows: repeat(1, 2.5vw);
+    grid-area: instructionX;
+}
+
+.instructionY {
+    display: grid;
+    grid-template-columns: repeat(1, 2.5vw);
+    grid-template-rows: repeat(10, 2.5vw);
+    grid-area: instructionY;
+}
+
+.shipsSelect {
+    grid-area: shipsSelect;
+    height: 5rem;
+    margin: 20px;
+    display: grid;
+    grid-template-areas:
+        "shipSelectTitle shipSelectTitle"
+        "shipSelectButtons shipSelectButtons"
+        "shipPreview shipPreview";
+}
+
+.shipSelectTitle {
+    grid-area: shipSelectTitle;
+    justify-self: center;
+}
+
+.shipPreview {
+    grid-area: shipPreview;
+    justify-self: center;
+    align-self: flex-start;
+}
+
+.shipSelectButtons {
+    grid-area: shipSelectButtons;
+    align-self: flex-start;
+    justify-self: center;
+    display: grid;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    grid-template-areas:
+        "shipRotate shipSubmit";
+}
+
+.shipSelectX {
+    grid-area: shipSelectX;
+}
+
+.shipSelectY {
+    grid-area: shipSelectY;
+}
+
+
+.shipRotate {
+    font-size: 1.5rem;
+    grid-area: shipRotate;
+    background-color: transparent;
+    width: 3rem;
+}
+
+.shipSubmit {
+    font-size: 1.5rem;
+    grid-area: shipSubmit;
+    background-color: transparent;
+    width: 3rem;
+}
+
+.shipCell {
+    height: 2.5vw;
+    width: 2.5vw;
+    border: 1px solid white;
+    background-color: black;
+}
+
+.shipCellRotate {
+    transform: rotate(90deg);
+}
+
+.shipOnCell {
+    background-color: rgb(0, 0, 0);
+}
+
+.prevShipOnCell {
+    background-color: #313131;
+}
+
+.shotted {
+    background-color: #DC3444;
+}
+
+.hit {
+    background-color: #BC1120;
+}
+
+.sinked {
+    background-color: #28A745;
+}
+
+.newGameButton {
+    justify-self: center;
+    background-color: transparent;
+    font-size: 2rem;
+    text-align: center;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow:
+        inset 1px 1px 15px rgba(0, 0, 0, 0.8),
+        inset 5px 5px 10px rgba(0, 0, 0, 0.4);
+    border: none;
+}
+
+.statistics {
+    padding: 20px;
+    font-size: 0.8rem;
+}
+
+.statisticsTitle {
+    grid-area: statisticsTitle;
+    justify-self: center;
+    text-align: center;
+}
+
+table {
+    margin-top: 15px;
+}
+
+th,
+td {
+    border: 1px solid black;
+    border-radius: 5%;
+    padding: 10px;
+    text-align: center;
+}
+
+/* @media (max-width: 610px) {
+    .appShips {
+        grid-template-areas:
+            "gameTitle"
+            "myGameBoard"
+            "aiGameBoard"
+            "stats"
+            "instruction";
+    }
+
+    .myGameBoard {
+        grid-template-columns:
+            8vw 80vw;
+        grid-template-rows:
+            8vw 8vw 80vw;
+    }
+
+    .aiGameBoard {
+        grid-template-columns:
+            80vw 8vw;
+        grid-template-rows:
+            8vw 8vw 80vw;
+    }
+
+    .gameBoardCells {
+        grid-template-columns: repeat(10, 8vw);
+        grid-template-rows: repeat(10, 8vw);
+        grid-area: gameCells;
+    }
+
+    .cellInstruction {
+        width: 8vw;
+        height: 8vw;
+        min-width: 8vw;
+        min-height: 8vw;
+    }
+
+    .instructionX {
+        display: grid;
+        grid-template-columns: repeat(11, 8vw);
+        grid-template-rows: repeat(1, 8vw);
+        grid-area: instructionX;
+    }
+
+    .instructionY {
+        display: grid;
+        grid-template-columns: repeat(1, 8vw);
+        grid-template-rows: repeat(10, 8vw);
+        grid-area: instructionY;
+    }
+} */
+
+@media (max-width: 1370px) {
+    .appShips {
+        grid-template-areas:
+            "gameTitle gameTitle"
+            "myGameBoard aiGameBoard"
+            "stats instruction";
+    }
+
+    .myGameBoard {
+        grid-template-columns:
+            4vw 40vw;
+        grid-template-rows:
+            4vw 4vw 40vw;
+    }
+
+    .aiGameBoard {
+        grid-template-columns:
+            40vw 4vw;
+        grid-template-rows:
+            4vw 4vw 40vw;
+    }
+
+    .gameBoardCells {
+        grid-template-columns: repeat(10, 4vw);
+        grid-template-rows: repeat(10, 4vw);
+        grid-area: gameCells;
+    }
+
+    .cellInstruction {
+        width: 4vw;
+        height: 4vw;
+        min-width: 4vw;
+        min-height: 4vw;
+    }
+
+    .instructionX {
+        display: grid;
+        grid-template-columns: repeat(11, 4vw);
+        grid-template-rows: repeat(1, 4vw);
+        grid-area: instructionX;
+    }
+
+    .instructionY {
+        display: grid;
+        grid-template-columns: repeat(1, 4vw);
+        grid-template-rows: repeat(10, 4vw);
+        grid-area: instructionY;
+    }
+}
+
+.settingsButton {
+    position: absolute;
+    margin: 20px;
+}
+
+.settingWindow {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.15);
+}
+
+.button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 2rem;
+}
+
+.turnOffSettingsButton {
+    position: absolute;
+    right: 0;
+    margin: 20px;
+}
+
+.settings {
+    position: absolute;
+    aspect-ratio: 9 / 16;
+    background-color: rgb(0, 0, 0, 0.4);
+    border-radius: 50px;
+    font-size: 1rem;
+    height: 80vh;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    grid-template-rows: 90px 90px 90px calc(100% - 270px);
+}
+
+.switch-holder {
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    padding: 10px 20px;
+    margin: 30px;
+    border-radius: 10px;
+    box-shadow:
+        inset 1px 1px 15px rgba(0, 0, 0, 0.8),
+        inset 5px 5px 10px rgba(0, 0, 0, 0.4);
+    justify-content: space-between;
+    align-items: center;
+    align-self: flex-start;
+}
+
+.switch-label {
+    width: 150px;
+}
+
+.switch-label i {
+    margin-right: 5px;
+}
+
+.switch-toggle {
+    height: 40px;
+}
+
+.switch-toggle input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    z-index: -2;
+}
+
+.switch-toggle input[type="checkbox"]+label {
+    position: relative;
+    display: inline-block;
+    width: 100px;
+    height: 40px;
+    border-radius: 20px;
+    margin: 0;
+    cursor: pointer;
+    box-shadow: inset -8px -8px 15px rgba(0, 0, 0, 0.6),
+        inset 10px 10px 10px rgba(0, 0, 0, .25);
+
+}
+
+.switch-toggle input[type="checkbox"]+label::before {
+    position: absolute;
+    content: 'OFF';
+    font-size: 13px;
+    text-align: center;
+    line-height: 25px;
+    top: 8px;
+    left: 8px;
+    width: 45px;
+    height: 25px;
+    border-radius: 20px;
+    background-color: #000000;
+    box-shadow: -3px -3px 5px rgba(0, 0, 0, 0.5),
+        3px 3px 5px rgba(0, 0, 0, .25);
+    transition: .3s ease-in-out;
+}
+
+.switch-toggle input[type="checkbox"]:checked+label::before {
+    left: 50%;
+    content: 'ON';
+    color: rgb(0, 0, 0);
+    background-color: #00b33c;
+    box-shadow: -3px -3px 5px rgba(0, 0, 0, 0.5),
+        3px 3px 5px #00b33c;
+}
+
+.switch-toggle input[type="checkbox"]+label::before {
+    position: absolute;
+    content: 'OFF';
+    font-size: 13px;
+    text-align: center;
+    line-height: 25px;
+    top: 8px;
+    left: 8px;
+    width: 45px;
+    height: 25px;
+    border-radius: 20px;
+    background-color: #000000;
+    box-shadow: -3px -3px 5px rgba(0, 0, 0, 0.5),
+        3px 3px 5px rgba(0, 0, 0, .25);
+    transition: .3s ease-in-out;
+}
+
+.mode.switch-toggle input[type="checkbox"]:checked+label::before {
+    content: 'HARD';
+}
+
+.mode.switch-toggle input[type="checkbox"]+label::before {
+    content: 'EASY';
+}
+
+.resetButton {
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+    box-shadow: inset -8px -8px 15px rgba(0, 0, 0, 0.6),
+        inset 10px 10px 10px rgba(0, 0, 0, .25);
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 10px 20px;
+    margin: 30px;
+    align-self: flex-end;
+    cursor: pointer;
+}

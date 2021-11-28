@@ -1,0 +1,82 @@
+const ships = [
+    {
+        "id": 0,
+        "name": "Battleship",
+        "mast": 4,
+        "submitted": false,
+        "rotated": false,
+        "xy":["", ""]
+    },
+    {
+        "id": 1,
+        "name": "Cruiser",
+        "mast": 3,
+        "submitted": false,
+        "rotated": false,
+        "xy":["", ""]
+    },
+    {
+        "id": 2,
+        "name": "Cruiser",
+        "mast": 3,
+        "submitted": false,
+        "rotated": false,
+        "xy":["", ""]
+    },
+    {
+        "id": 3,
+        "name": "Destroyer",
+        "mast": 2,
+        "submitted": false,
+        "rotated": false,
+        "xy":["", ""]
+    },
+    {
+        "id": 4,
+        "name": "Destroyer",
+        "mast": 2,
+        "submitted": false,
+        "rotated": false,
+        "xy":["", ""]
+    },
+    {
+        "id": 5,
+        "name": "Destroyer",
+        "mast": 2,
+        "submitted": false,
+        "rotated": false,
+        "xy":["", ""]
+    },
+    {
+        "id": 6,
+        "name": "Single-masted",
+        "mast": 1,
+        "submitted": false,
+        "rotated": false,
+        "xy":["", ""]
+    },
+    {
+        "id": 7,
+        "name": "Single-masted",
+        "mast": 1,
+        "submitted": false,
+        "rotated": false,
+        "xy":["", ""]
+    },
+    {
+        "id": 8,
+        "name": "Single-masted",
+        "mast": 1,
+        "submitted": false,
+        "rotated": false,
+        "xy":["", ""]
+    },
+    {
+        "id": 9,
+        "name": "Single-masted",
+        "mast": 1,
+        "submitted": false,
+        "rotated": false,
+        "xy":["", ""]
+    }
+]
