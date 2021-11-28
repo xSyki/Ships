@@ -730,8 +730,6 @@ aiShot = () => {
     }
   }
 
-  console.log(x);
-  console.log(y);
   const id  = this.state.shipsOnMyGameBoard[x][y];
 
   let newAiShotsFired = this.state.aiShotsFired;
