@@ -18,14 +18,6 @@ class Statistics extends React.Component {
         return sinkedShips;
     }
 
-    shots() {
-        return <span></span>
-    }
-
-    shotsFired() {
-        return <span></span>
-    }
-
     render() {
         return(
             <div className="statistics">
