@@ -1003,6 +1003,9 @@ newGame = () => {
   
     aiShotsFired: 0,
     aiHitShots: 0,
+
+    aiPreviusHitShot: [-1, -1],
+    aiPreviusPreviusHitShot: [-1, -1]
   })
 }
 
