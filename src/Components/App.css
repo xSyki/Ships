@@ -26,6 +26,7 @@ body {
     column-gap: 2vw;
     row-gap: 1vw;
     margin: 0 auto;
+    min-width: 620px;
 }
 
 .gameTitle {
@@ -114,9 +115,9 @@ body {
 .myGameBoard {
     display: grid;
     grid-template-columns:
-        2.5vw 25vw;
+    minmax(25px, 2.5vw) minmax(250px, 25vw);
     grid-template-rows:
-        2.5vw 2.5vw 25vw;
+    minmax(25px, 2.5vw) minmax(25px, 2.5vw) minmax(250px, 25vw);
     grid-template-areas:
         "gameBoardInstructionTitle gameBoardInstructionTitle"
         "none instructionX"
@@ -127,9 +128,9 @@ body {
 .aiGameBoard {
     display: grid;
     grid-template-columns:
-        25vw 2.5vw;
+    minmax(250px, 25vw) minmax(25px, 2.5vw);
     grid-template-rows:
-        2.5vw 2.5vw 25vw;
+    minmax(25px, 2.5vw) minmax(25px, 2.5vw) minmax(250px, 25vw);
     grid-template-areas:
         "gameBoardInstructionTitle gameBoardInstructionTitle"
         "instructionX none"
@@ -139,8 +140,8 @@ body {
 
 .gameBoardCells {
     display: grid;
-    grid-template-columns: repeat(10, 2.5vw);
-    grid-template-rows: repeat(10, 2.5vw);
+    grid-template-columns: repeat(10, minmax(25px, 2.5vw));
+    grid-template-rows: repeat(10, minmax(25px, 2.5vw));
     grid-area: gameCells;
 }
 
@@ -156,10 +157,10 @@ body {
 }
 
 .cellInstruction {
-    width: 2.5vw;
-    height: 2.5vw;
-    min-width: 2.5vw;
-    min-height: 2.5vw;
+    width: minmax(25px, 2.5vw);
+    height: minmax(25px, 2.5vw);
+    min-width: minmax(25px, 2.5vw);
+    min-height: minmax(25px, 2.5vw);
     margin-right: 5px;
     grid-area: cellInstruction;
 }
@@ -171,15 +172,15 @@ body {
 
 .instructionX {
     display: grid;
-    grid-template-columns: repeat(11, 2.5vw);
-    grid-template-rows: repeat(1, 2.5vw);
+    grid-template-columns: repeat(11, minmax(25px, 2.5vw));
+    grid-template-rows: repeat(1, minmax(25px, 2.5vw));
     grid-area: instructionX;
 }
 
 .instructionY {
     display: grid;
-    grid-template-columns: repeat(1, 2.5vw);
-    grid-template-rows: repeat(10, 2.5vw);
+    grid-template-columns: repeat(1, minmax(25px, 2.5vw));
+    grid-template-rows: repeat(10, minmax(25px, 2.5vw));
     grid-area: instructionY;
 }
 
@@ -312,47 +313,6 @@ td {
             "gameTitle gameTitle"
             "myGameBoard aiGameBoard"
             "stats instruction";
-    }
-
-    .myGameBoard {
-        grid-template-columns:
-            4vw 40vw;
-        grid-template-rows:
-            4vw 4vw 40vw;
-    }
-
-    .aiGameBoard {
-        grid-template-columns:
-            40vw 4vw;
-        grid-template-rows:
-            4vw 4vw 40vw;
-    }
-
-    .gameBoardCells {
-        grid-template-columns: repeat(10, 4vw);
-        grid-template-rows: repeat(10, 4vw);
-        grid-area: gameCells;
-    }
-
-    .cellInstruction {
-        width: 4vw;
-        height: 4vw;
-        min-width: 4vw;
-        min-height: 4vw;
-    }
-
-    .instructionX {
-        display: grid;
-        grid-template-columns: repeat(11, 4vw);
-        grid-template-rows: repeat(1, 4vw);
-        grid-area: instructionX;
-    }
-
-    .instructionY {
-        display: grid;
-        grid-template-columns: repeat(1, 4vw);
-        grid-template-rows: repeat(10, 4vw);
-        grid-area: instructionY;
     }
 }
 
